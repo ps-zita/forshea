@@ -1,0 +1,150 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5dc; /* Beige background */
+    font-family: 'Noto Serif Hentaigana', serif;
+}
+
+.envelope-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#envelope {
+    width: 700px; /* Significantly larger size */
+    animation: rotate-scale 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes rotate-scale {
+    0% {
+        transform: rotate(-10deg) scale(1);
+    }
+    25% {
+        transform: rotate(0deg) scale(1.2);
+    }
+    50% {
+        transform: rotate(10deg) scale(1);
+    }
+    75% {
+        transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(-10deg) scale(1);
+    }
+}
+
+#content {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    width: 700px; /* Larger size for the postcard */
+    height: 450px; /* Larger size for the postcard */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transform: scale(0);
+    transition: opacity 1s, transform 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('https://garden.spoonflower.com/c/8523115/p/f/m/UE_RKzaOxis_h6478O51Us87-T6Q2cwBRBgGfk-Y6a8Vm9Ij12geuQ/tac_bold_rose-pink_coral.jpg');
+    background-repeat: repeat;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.buttons.vertical {
+    flex-direction: column;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn.yes {
+    background-color: #07a94a;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.btn.no {
+    background-color: #b0bec5;
+    color: white;
+    position: relative;
+}
+
+.btn.no.disabled {
+    pointer-events: none;
+    opacity: 1; /* Fully opaque */
+    transform: scale(1.2); /* Slightly larger */
+    position: relative;
+    top: 10%;
+}
+
+.btn.no.disabled::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/663/939/small_2x/abstract-colorful-scribble-line-stroke-artistic-graphic-design-elements-for-lower-third-brush-lines-text-effect-photo-overlay-etc-chinese-style-abstract-brush-strokes-free-png.png');
+    background-size: cover;
+    opacity: 1; /* Fully opaque */
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:active {
+    transform: scale(1);
+}
+
+.btn.yes.larger {
+    transform: scale(1.5); /* Significantly larger */
+    animation: pulsate 0.5s infinite alternate; /* Pulsate animation */
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.6);
+    }
+}
