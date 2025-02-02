@@ -112,7 +112,6 @@ h1 {
     opacity: 1; /* Fully opaque */
     transform: scale(1.2); /* Slightly larger */
     position: relative;
-    top: 10%;
 }
 
 .btn.no.disabled::after {
@@ -147,4 +146,13 @@ h1 {
     100% {
         transform: scale(1.6);
     }
+}
+
+.countdown {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#timer {
+    font-size: 2rem;
 }
