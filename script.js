@@ -60,8 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // Display the countdown message
         countdown.style.display = 'block';
-        // Start the countdown timer
-        startCountdown();
+        // Animate the postcard twirling and fading out
+        content.style.animation = 'twirl-fade-out 1s forwards';
+        // Redirect to another webpage after the animation
+        setTimeout(() => {
+            window.location.href = 'blogpage.html'; // Replace with the URL of the desired webpage
+        }, 1500); // Delay to match the animation duration plus an extra half second
     });
 
     function swapButtons() {

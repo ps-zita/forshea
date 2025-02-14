@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for shea's eyes only</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
+
+        body {
+            font-family: 'Arimo', serif;
+            background-color: #fff0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            width: 60%;
+            max-width: 1280px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .banner {
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: "Arimo", serif;
+            font-weight: 600;
+            text-align: center;
+        }
+        h2 {
+            font-family: "Arimo", serif;
+            font-weight: 400;
+        }
+        .content {
+            margin-top: 20px;
+            text-align: center;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        p {
+            font-family: "Arimo", serif;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 1.2em;
+        }
+        pre {
+            background-color: #ffebf0;
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 5px solid #ffd1dc;
+        }
+        code {
+            background-color: #fcdada;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 105%;
+            border-radius: 3px;
+        }
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 85%;
+            background-color: #f6f8fa;
+            border-left: 5px solid #dfe2e5;
+        }
+        ul, ol {
+            padding-left: 20px;
+            text-align: left;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        @keyframes grow {
+            0% {
+                font-size: 1em;
+                font-weight: normal;
+            }
+            50% {
+                font-size: 2em;
+                font-weight: bold;
+            }
+            100% {
+                font-size: 1em;
+                font-weight: normal;
+            }
+        }
+        .animate {
+            animation: grow 2s infinite;
+        }
+    </style>
+    <script>
+        function updateTimer() {
+            const startDate = new Date('2024-02-06T11:02:00');
+            const now = new Date();
+            const diff = now - startDate;
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').textContent = 
+                `${years} year, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+        }
+
+        setInterval(updateTimer, 1000);
+
+        function addMarquee() {
+            const marqueeElement = document.createElement('marquee');
+            marqueeElement.width = "100%";
+            marqueeElement.direction = "left";
+            marqueeElement.height = "20px";
+            marqueeElement.textContent = "i love my wife so much, she's all i can think about, she's my everything, i want to share the rest of my life with her.";
+            document.querySelector('.content').appendChild(marqueeElement);
+        }
+
+        window.onload = function() {
+            const audio = new Audio('laputa.mp3');
+            audio.play();
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>💗FOR SHEA'S EYES ONLY !!!1!💗</h1>
+        <img src="https://www.houstonpettalk.com/wp-content/uploads/2021/08/Depositphotos_14094483_xl-2015-1280x640.jpg" alt="Banner Image" class="banner">
+        <div class="content">
+            <h2>to the love of my life</h2>
+            <p>it has been <span id="timer">0 year, 0 days, 0 hours, 0 minutes, and 0 seconds</span> since i sent you a message on a whim and my life has changed so much for the better. i could never
+                have imagined id end up with someone so special by chance, im so grateful you're my forever valentine. you are my everything and we belong with each other for the rest of our lives.</p>
+
+            <h2>are you a <code>marquee</code>? because you're scrolling through my mind!</h2>
+            <pre><code>&lt;marquee width="100%" direction="left" height="100px"&gt; 
+    i love my wife so much, she's all i can think about, she's my everything, i want to share the rest of my life with her.
+&lt;/marquee&gt;</code></pre>
+        </div>
+        <div>             
+            <button onclick="addMarquee()">Test the Code!</button>
+    </div>
+    <div class="content">
+        <h2>my soulmate</h2>
+        <p> i adore you so much, you're my precious girl and im going to take care of you forever, since the day you made your way into my life you're all ive been able to think about,
+            when im dreaming its about you, when i daydream im thinking about you, when i fantasize its of you, when i try to motivate myself to do something i think of you, i wanna be the best husband
+            for you and i want to give my beautiful, amazing, smart, funny wife the best life imagineable. <br><br>
+            i love being with you no matter what happens, i wish you were here for me to spoil right now. <br>
+            i hope you enjoy this more than a plain old letter, i put alot of effort into this and i just wanna make you know, especially today, that i love you so much and i am SO incredibly
+            grateful to have you in my life, my heart is all yours, and i want to thank you for letting me keep your heart too.
+        </p>
+        <img src="https://media3.giphy.com/media/gWnmfse9dWy3ig3Dt9/200.gif?cid=6c09b952mw9yr2xe7laa0ge2jsjgxz4hnx1tay78dhumy52z&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Cute Gif"></img>
+        <p>there is nothing on this planet that is equal to or could act as a testament to my love, i could marry you a million times over and die for you and kill for you and that would not show you
+            the smallest percentage of what i really feel for you, i could type endlessly and fill a forest worth of paper or ginourmous servers and datacenters worth of text (one datacentre usually has 10
+            petabytes worth of storage, and a single unicode character is usually 2 bytes large, so that means id need 562.95 TRILLION, or 562,949,953,421,312 characters to fill a SINGLE datacentre up) 
+            and it would not be equal to a fraction of my love for you.
+        </p>
+        <p>i love you <span class="animate">SO</span> much shea, i hope you have a very happy valentines day, hopefully the same time next year ill have a handwritten letter to give you in person on a fancy
+        date somewhere special to both of us.</p>
+    </div>
+</body>
+</html>

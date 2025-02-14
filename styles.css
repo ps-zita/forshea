@@ -4,8 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f5f5dc; /* Beige background */
+    background-color: white; /* White background */
     font-family: 'Noto Serif Hentaigana', serif;
+    overflow: hidden; /* Prevent scrolling on the body */
+    position: relative;
 }
 
 .envelope-container {
@@ -45,7 +47,6 @@ body {
     opacity: 0;
     width: 700px; /* Larger size for the postcard */
     height: 450px; /* Larger size for the postcard */
-    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
     transform: scale(0);
@@ -55,8 +56,15 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('https://garden.spoonflower.com/c/8523115/p/f/m/UE_RKzaOxis_h6478O51Us87-T6Q2cwBRBgGfk-Y6a8Vm9Ij12geuQ/tac_bold_rose-pink_coral.jpg');
-    background-repeat: repeat;
+}
+
+.postcard-image {
+    position: absolute;
+    width: 120%; /* Make the image larger than the content */
+    height: 120%; /* Make the image larger than the content */
+    top: -10%;
+    left: -10%;
+    z-index: -1; /* Place the image behind the content */
 }
 
 @keyframes scale-up {
@@ -67,6 +75,17 @@ body {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes twirl-fade-out {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(720deg) scale(0.5);
+        opacity: 0;
     }
 }
 
