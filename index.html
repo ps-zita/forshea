@@ -3,28 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for shea's eyes only</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hentaigana&display=swap" rel="stylesheet">
+    <title>Shea's Babysitting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="envelope-container">
-        <img id="envelope" src="envelope1.png" alt="Envelope">
-    </div>
-    <div id="content" class="content">
-        <img src="https://dodo.ac/np/images/a/ab/Lovely_Hearts_Card_NH.png" alt="Postcard" class="postcard-image">
-        <h1 id="headline">Will you be my valentine?</h1>
-        <div class="buttons">
-            <button class="btn yes">YESS!!!</button>
-            <button class="btn no">eww.. no..</button>
+    <div class="background"></div>
+    <div class="gradient-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="content-box">
+        <div class="logo-section">
+            <div class="title-group">
+                <div class="frame-container">
+                    <img src="shea.png" alt="Placeholder" class="shea-image">
+                    <img src="frame.png" alt="Frame" class="frame-image">
+                </div>
+                <div class="logo-text-container">
+                    <h1 class="logo-text">Shea's Babysitting</h1>
+                    <div class="subtitle">Beaumont, CA</div>
+                </div>
+            </div>
+            <img src="sunset.jpeg" alt="Header Image" class="header-image">
         </div>
-        <div id="countdown" class="countdown" style="display: none;">
-            <p>You can open this letter in:</p>
-            <p id="timer"></p>
+        <div class="boxes-container">
+            <div class="inner-box large">
+                <h1 class="intro-title">title!</h1>
+                <div class="intro-content">
+                    Hello! My name is Shea, here is some information about me and the services I provide: blah blah blah blah <span class="highlight-text"><i>blah blah blah</i></span>
+                </div>
+                <hr class="divider">
+                <h2 class="schedule-title">Availability and Rates</h2>
+                <div class="availability-container">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th class="time-header">5am-7am</th>
+                                <th class="time-header">7am-6pm</th>
+                                <th class="time-header">after 6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mon</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Tue</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Wed</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Thur</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Fri</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Sat</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Sun</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>rates are consistently $17 per hour!</p>
+                </div>
+
+                <hr class="divider">
+                <h2 class="schedule-title">Testimonials</h2>
+                <div class="testimonials-container">
+                    <div class="testimonials-track">
+                        <div class="testimonial">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Shea is amazing with kids! My children always look forward to her visits."</p>
+                            <span class="testimonial-author">- Sarah M.</span>
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"Very responsible and always on time. We couldn't be happier!"</p>
+                            <span class="testimonial-author">- John D.</span>
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"The kids love her energy and creative activities. Highly recommended!"</p>
+                            <span class="testimonial-author">- Emily R.</span>
+                        </div>
+                        <div class="testimonial">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Professional, caring, and reliable. A true gem!"</p>
+                            <span class="testimonial-author">- Michael P.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-box small">
+                <h2 class="schedule-title">Contact Me</h2>
+                <form action="https://formsubmit.co/your-email@email.com" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p>
+                        Phone: (123) 456-7890 <br>
+                        Email: shea.roblesky@example.com
+                    </p>
+                </form>
+                <hr class="divider">
+                <h2 class="schedule-title">Services Offered</h2>
+                <ul class="services-list">
+                    <li>Supervision and care for children of all ages</li>
+                    <li>Meal preparation and feeding</li>
+                    <li>Assistance with homework and educational activities</li>
+                    <li>Engaging in fun and creative playtime</li>
+                    <li>Basic housekeeping related to childcare</li>
+                    <li>Bedtime routines</li>
+                </ul>
+                <hr class="divider">
+                <h2 class="schedule-title">Stuff Placeholder Text</h2>
+                <ul class="stuff-list">
+                    <li>Successfully completed a first aid course @ whatever hospital blah blah</li>
+                    <li>Non smoker</li>
+                    <li>Can take care of special needs children</li>
+                    <li>Has government IDs</li>
+                    <li>Police check</li>
+                </ul>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,177 +1,477 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    color: white;
     margin: 0;
-    background-color: white; /* White background */
-    font-family: 'Noto Serif Hentaigana', serif;
-    overflow: hidden; /* Prevent scrolling on the body */
-    position: relative;
-}
-
-.envelope-container {
-    position: relative;
+    padding: 0;
+    background: black;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'Merriweather', serif;
 }
 
-#envelope {
-    width: 700px; /* Significantly larger size */
-    animation: rotate-scale 2s infinite;
-    cursor: pointer;
-}
-
-@keyframes rotate-scale {
-    0% {
-        transform: rotate(-10deg) scale(1);
-    }
-    25% {
-        transform: rotate(0deg) scale(1.2);
-    }
-    50% {
-        transform: rotate(10deg) scale(1);
-    }
-    75% {
-        transform: rotate(0deg) scale(1.2);
-    }
-    100% {
-        transform: rotate(-10deg) scale(1);
-    }
-}
-
-#content {
+.datetime-user {
     position: absolute;
-    display: none;
-    opacity: 0;
-    width: 700px; /* Larger size for the postcard */
-    height: 450px; /* Larger size for the postcard */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    transform: scale(0);
-    transition: opacity 1s, transform 1s;
+    top: 10px;
+    right: 10px;
+    color: #FFA500;
+    font-size: 0.8em;
+    text-align: right;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    gap: 5px;
 }
 
-.postcard-image {
-    position: absolute;
-    width: 120%; /* Make the image larger than the content */
-    height: 120%; /* Make the image larger than the content */
-    top: -10%;
-    left: -10%;
-    z-index: -1; /* Place the image behind the content */
-}
-
-@keyframes scale-up {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes twirl-fade-out {
-    0% {
-        transform: rotate(0deg) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(720deg) scale(0.5);
-        opacity: 0;
-    }
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-}
-
-.buttons.vertical {
-    flex-direction: column;
-}
-
-.btn {
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn.yes {
-    background-color: #07a94a;
-    color: white;
-    transition: transform 0.3s;
-}
-
-.btn.no {
-    background-color: #b0bec5;
-    color: white;
-    position: relative;
-}
-
-.btn.no.disabled {
-    pointer-events: none;
-    opacity: 1; /* Fully opaque */
-    transform: scale(1.2); /* Slightly larger */
-    position: relative;
-}
-
-.btn.no.disabled::after {
-    content: '';
+.scanlines {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/011/663/939/small_2x/abstract-colorful-scribble-line-stroke-artistic-graphic-design-elements-for-lower-third-brush-lines-text-effect-photo-overlay-etc-chinese-style-abstract-brush-strokes-free-png.png');
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.1) 0,
+            rgba(255, 255, 255, 0.1) 1px,
+            rgba(0, 0, 0, 0.1) 1px,
+            rgba(0, 0, 0, 0.1) 2px
+        );
+    pointer-events: none;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('beaumont.png') center center no-repeat;
     background-size: cover;
-    opacity: 1; /* Fully opaque */
+    filter: grayscale(100%) sepia(100%) hue-rotate(-45deg) contrast(200%);
 }
 
-.btn:hover {
-    transform: scale(1.1);
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 140, 0, 0.5), rgba(255, 140, 0, 0) 30%);
 }
 
-.btn:active {
-    transform: scale(1);
+.content-box {
+    position: relative;
+    width: 80%;
+    min-height: 90vh;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 2px solid orange;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.btn.yes.larger {
-    transform: scale(1.5); /* Significantly larger */
-    animation: pulsate 0.5s infinite alternate; /* Pulsate animation */
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-@keyframes pulsate {
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.frame-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.frame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.shea-image {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.logo-text-container {
+    text-align: left;
+    flex: 1;
+}
+
+.logo-text {
+    font-family: 'Pacifico', cursive;
+    color: #FFA500;
+    text-shadow: 0 0 1px #FFA500, 0 0 10px #FFA500;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.subtitle {
+    color: #FFA500;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.header-image {
+    width: 100%;
+    max-width: 750px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid orange;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.boxes-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.inner-box {
+    background: rgba(255, 100, 0, 0.5);
+    border: 2px solid rgba(255, 140, 0, 1);
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.inner-box.large {
+    flex: 65;
+}
+
+.inner-box.small {
+    flex: 25;
+}
+
+.intro-content {
+    color: #FFF;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.intro-title {
+    font-family: 'Merriweather', serif;
+    color: #FFA500;
+    text-shadow: 0 0 1px #FFA500, 0 0 10px #FFA500;
+    font-size: 2em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #FFA500, transparent);
+    margin: 20px 0;
+}
+
+.schedule-title {
+    color: #FFA500;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #FFA500;
+    font-weight: 700;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.schedule-table th {
+    background: rgba(255, 165, 0, 0.2);
+    color: #FFA500;
+    font-weight: 700;
+}
+
+.schedule-table tr:nth-child(even) {
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.time-header {
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.highlight-text {
+    color: #FFA500;
+    text-shadow: 0 0 10px #FFA500, 0 0 20px #FFA500;
+    font-weight: bold;
+}
+
+/* Testimonials Styles */
+.testimonials-container {
+    width: calc(100% - 40px); /* Adjust for padding */
+    overflow: hidden;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.testimonials-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    will-change: transform;
+}
+
+.testimonial {
+    flex: 0 0 auto;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    padding: 20px;
+    margin: 0 20px;
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial p {
+    margin: 10px 0;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    color: #FFA500;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.stars {
+    margin-bottom: 10px;
+    color: #FFA500;
+    text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.stars i {
+    margin-right: 3px;
+}
+
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
     0% {
-        transform: scale(1.5);
+        transform: translateX(0);
     }
     100% {
-        transform: scale(1.6);
+        transform: translateX(calc(-320px * 4));
     }
 }
 
-.countdown {
-    text-align: center;
-    margin-top: 20px;
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
-#timer {
-    font-size: 2rem;
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #FFA500;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.submit-btn {
+    background: rgba(255, 165, 0, 0.2);
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 165, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+@media (max-width: 767px) {
+    .content-box {
+        width: 95%;
+        min-height: 80vh;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .datetime-user {
+        font-size: 0.7em;
+    }
+
+    .logo-section {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .title-group {
+        min-width: 0;
+        gap: 15px;
+    }
+
+    .frame-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo-text {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .header-image {
+        height: 100px;
+    }
+
+    .boxes-container {
+        flex-direction: column;
+    }
+
+    .inner-box.large,
+    .inner-box.small {
+        flex: 1;
+    }
+
+    .schedule-table {
+        font-size: 0.9em;
+    }
+
+    .time-header {
+        font-size: 0.8em;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 5px;
+    }
+
+    .testimonial {
+        width: 250px;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+}
+.availability-container {
+    width: calc(100% - 40px); /* Adjust for padding */
+    overflow: hidden;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    color: #FFF;
+    box-shadow: none; /* Remove extra shadow */
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.schedule-table th {
+    background: rgba(255, 165, 0, 0.2);
+    color: #FFA500;
+    font-weight: 700;
+}
+
+.schedule-table tr:nth-child(even) {
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.time-header {
+    font-size: 0.9em;
+    white-space: nowrap;
 }
